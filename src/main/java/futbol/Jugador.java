@@ -4,15 +4,21 @@ public class Jugador extends Futbolista {
     public short golesMarcados;
     public byte dorsal;
 
-    public Jugador(String nombre, int edad, String posicion) {
+    public Jugador(String nombre, int edad, String posicion, short golesMarcados, byte dorsal) {
         super(nombre, edad, posicion);
+        this.golesMarcados = golesMarcados;
+        this.dorsal = dorsal;
+    }
+
+    public Jugador() {
         golesMarcados = 289;
         dorsal = 7;
     }
 
     @Override
-    public int compareTo(Futbolista o) {
-        return Math.abs(getEdad() - o.getEdad());
+    public int compareTo(Object o) {
+        Jugador j = (Jugador) o;
+        return Math.abs(getEdad() - j.getEdad());
     }
 
     @Override
